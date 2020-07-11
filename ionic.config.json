@@ -1,5 +1,11 @@
 {
   "name": "CursoSpringIonic",
   "integrations": {},
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "http://localhost:8080/",
+      "proxyUrl": "http://localhost:8080/"
+    }
+  ]
 }
