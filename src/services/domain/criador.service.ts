@@ -12,13 +12,7 @@ export class CriadorService{
     }
 
     findByEmail(email: string) : Observable<CriadorDTO> {
-     
-        let token = this.storage.getLocalUser().token;
-        let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
-
-        return this.http.get<CriadorDTO>(
-            `${API_CONFIG.baseUrl}/criador/email?value=${email}`,
-            {'headers': authHeader});
+        return this.http.get<CriadorDTO>(`${API_CONFIG.baseUrl}/criador/email?value=${email}`);
     }
 
     getImageFromBucket(id: string) : Observable<any>{

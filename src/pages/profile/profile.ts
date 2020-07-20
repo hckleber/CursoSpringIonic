@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StorageService } from '../../services/storage.service';
-import { CategoriaDTO } from '../../models/categoria.dto';
 import { CriadorService } from '../../services/domain/criador.service';
 import { API_CONFIG } from '../../config/api.config';
+import { CriadorDTO } from '../../models/criador.dto';
 
 /**
  * Generated class for the ProfilePage page.
@@ -19,7 +19,7 @@ import { API_CONFIG } from '../../config/api.config';
 })
 export class ProfilePage {
 
-  criador: CategoriaDTO;
+  criador: CriadorDTO;
 
   constructor(
     public navCtrl: NavController, 
@@ -34,10 +34,17 @@ export class ProfilePage {
       this.criadorService.findByEmail(localUser.email)
       .subscribe(response => {
         this.criador = response;
-        
+        this.getImageIfExists();
       },
-      error => {});
+      error => {
+        if(error.status == 403){
+          this.navCtrl.setRoot('HomePage');
+        }
+      });
     }  
+    else{
+      this.navCtrl.setRoot('HomePage');
+    }
   }
 
   getImageIfExists(){
