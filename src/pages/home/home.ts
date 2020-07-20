@@ -21,12 +21,22 @@ export class HomePage {
     public auth: AuthService) {
 
   }
+
 ionViewWillEnter(){
   this.menu.swipeEnable(false);
 }
 
 ionViewDidLeave(){
   this.menu.swipeEnable(true); 
+}
+
+ionViewDidEnter(){
+this.auth.refreshToken()
+        .subscribe(response => {
+        this.auth.successfulLoging(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('CategoriasPage');
+        },
+        error => {})
 }
 
   login(){
