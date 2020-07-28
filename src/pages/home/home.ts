@@ -48,4 +48,7 @@ this.auth.refreshToken()
         error => {})
   }
 
+  signup(){
+  this.navCtrl.push('SignupPage');
+  }
 }
