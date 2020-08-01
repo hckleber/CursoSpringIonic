@@ -12,28 +12,25 @@ export class AnimaisService{
     findByCategoria(categoria_id : string){4
                 console.log("o Id é: " + categoria_id);
 
-        switch (+categoria_id){
-            case 1:{
+        switch (parseInt(categoria_id)){
+            case 1:
                 console.log("peixe");
             return this.http.get(`${API_CONFIG.baseUrl}/peixes`);
-            break;
-            }
             
-            case 2:{
+            case 2:
                 console.log("coral");
             return this.http.get(`${API_CONFIG.baseUrl}/corais`);
-            break;
-            }
             
-            default:{
+            default:
                 console.log("erro");
             return this.http.get(`${API_CONFIG.baseUrl}/corais`);
-            break;
-            }
             
         }
-        
-
-
     }
+
+    getSmallImageFromBucket(id : string) : Observable<any>{
+        let url = `${API_CONFIG.bucketBaseUrl}/prod${id}-small.jpg`
+        return this.http.get(url, {responseType : 'blob'});
+    }
+
 }

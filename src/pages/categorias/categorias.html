@@ -12,7 +12,7 @@
     <button ion-item *ngFor="let categoria of categorias" (click)="showAnimais(categoria.id)">
       <ion-thumbnail item-start>
 <!--        <img src= "{{bucketUrl/cat{{item.id}}.jpg";  -->
-        <img src="{{bucketUrl}}/cat{{categoria.id}}.jpg">
+        <img src="{{bucketUrl}}/cat{{categoria.id}}.jpg || assets/imgs/noimage.jpg">
       </ion-thumbnail>
       <h2> {{ categoria.nome }} </h2>
     </button>
