@@ -1,0 +1,26 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Animais</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<!-- aqui gera uma lista
+     tem que colocar um condicional (com switch) de coral
+     peixes e invertebrados -->
+  <ion-list>
+    <button ion-item *ngFor="let peixe of peixes">
+      <ion-thumbnail item-start>
+        <img [src]="peixe.imageUrl || 'assets/imgs/peixe.jpg'">
+      </ion-thumbnail>
+      <h2>{{peixe.nomePopular}}</h2>
+      <p>{{peixe.especie}}</p>
+    </button>
+  </ion-list>
+
+</ion-content>

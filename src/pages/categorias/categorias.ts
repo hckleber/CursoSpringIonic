@@ -37,5 +37,9 @@ export class CategoriasPage {
     error => {});
   }
 
+  showAnimais(){
+    this.navCtrl.push('AnimaisPage');
+  }
+
 
 }
