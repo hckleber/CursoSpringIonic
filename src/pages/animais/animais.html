@@ -14,7 +14,7 @@
      tem que colocar um condicional (com switch) de coral
      peixes e invertebrados -->
   <ion-list>
-    <button ion-item *ngFor="let peixe of peixes">
+    <button ion-item *ngFor="let peixe of peixes" (click)="showDetail()">
       <ion-thumbnail item-start>
         <img [src]="peixe.imageUrl || 'assets/imgs/peixe.jpg'">
       </ion-thumbnail>

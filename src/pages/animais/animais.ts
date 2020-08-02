@@ -40,5 +40,9 @@ export class AnimaisPage {
       }
     }
 
+    showDetail(){ 
+      this.navCtrl.push('AnimalDetailPage');
+    }
+
   }
 
