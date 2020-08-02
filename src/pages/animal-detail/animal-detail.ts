@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PeixeDTO } from '../../models/peixe.dto';
-
-/**
- * Generated class for the AnimalDetailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AnimaisService } from '../../services/domain/animais.service';
 
 @IonicPage()
 @Component({
@@ -18,15 +12,19 @@ export class AnimalDetailPage {
 
   animal : PeixeDTO;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public animalService: AnimaisService) {
   }
 
   ionViewDidLoad() {
-    this.animal = {
-      id: "1",
-      nomePopular: "Peixe",
-      especie: "Osseo"
-    }
+    let animal_id = this.navParams.get('animal_id')
+   this.animalService.findById(animal_id)
+   .subscribe(response => {
+     this.animal = response;
+   },
+   error => {});
   }
 
 }

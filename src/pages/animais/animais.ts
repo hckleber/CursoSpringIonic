@@ -40,8 +40,8 @@ export class AnimaisPage {
       }
     }
 
-    showDetail(){ 
-      this.navCtrl.push('AnimalDetailPage');
+    showDetail(animal_id : string){ 
+      this.navCtrl.push('AnimalDetailPage', {animal_id : animal_id});
     }
 
   }

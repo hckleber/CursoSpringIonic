@@ -4,6 +4,7 @@ export interface PeixeDTO {
     nomePopular: string;
     grupo?: string;
     litragemMinima?: string;
+    
     porte?: string;
     alimentacao?: string;
     dificuldade?: string;
